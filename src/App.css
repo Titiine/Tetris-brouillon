@@ -24,8 +24,12 @@
   border: 1px solid goldenrod;
   /* width: 50vh;
   height: 82vh;   */
+
   width: 453px;
-  height: 725px;
+  /* #TODO: delete later -- Height's value with manual "x" rows: */
+  height: 815px;
+  /* Height's value WITHOUT manual "x" rows: */
+  /* height: 725px; */
 
   
   flex-wrap: wrap-reverse;
@@ -82,6 +86,13 @@
 }
 .box10 {
   background: #16a085;
+}
+.box0 {
+  background: #16a085;
+}
+
+.box10x, .box1x, .box2x, .box3x, .box4x, .box5x, .box6x, .box7x, .box8x, .box9x {
+  background: #112A53;
 }
 
 /* ///////////////
