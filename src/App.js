@@ -142,6 +142,13 @@ function App() {
     // descendre la piece
     applyMove1RightOrLeftOrDownOnShip(ship, "down");
 
+    backupGrid = gridCases.slice(0, gridCases.length);
+    let updatedGrid = a_1_buildGrid(numGridColumns, numGridLines);
+    // compute the compGrid (using the ship)
+    colorShipInMatrix(updatedGrid, ship);
+    // update the (grid) state with the compGrid
+    setGridCases(updatedGrid);
+
     // fin : ca dessine
     // alert(6);
     // moveShipLeft();
@@ -149,7 +156,7 @@ function App() {
 
   useEffect(() => {
     startGame();
-    // setInterval(tick, 4000);
+    setInterval(tick, 1000);
   }, []);
 
 
@@ -297,7 +304,7 @@ function App() {
           right = -0.5;
           break;
         case "down":
-          up = -1;
+          up = -0.5;
           break;
         default:
           console.log("This movement doesn't exist, please use right or left")
@@ -317,7 +324,7 @@ function App() {
         const coordD = ship[3];
 
         if (coordC[1]>0) {
-                    // A
+          // A
           coordA[0] = coordA[0] + right;
           coordA[1] = coordA[1] + up;
           // B
@@ -330,7 +337,7 @@ function App() {
           coordD[0] = coordD[0] + right;
           coordD[1] = coordD[1] + up;
         } else {
-          alert("Ship reached the floor");
+          // alert("Ship reached the floor");
           message = "Ship reached the floor";
         }
 
