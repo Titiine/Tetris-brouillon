@@ -7,6 +7,12 @@
   /* box-sizing: border-box; */
   /* color: red; */
 }
+
+h1{
+  margin: 70px;
+  text-align: center;
+  font-size: 3em;
+}
 .gridContainer_11 {
   /* original : */
   /* 
@@ -27,9 +33,9 @@
 
   width: 453px;
   /* #TODO: delete later -- Height's value with manual "x" rows: */
-  height: 815px;
+  /* height: 815px; */
   /* Height's value WITHOUT manual "x" rows: */
-  /* height: 725px; */
+  height: 725px;
 
   
   flex-wrap: wrap-reverse;
@@ -44,6 +50,10 @@
   align-content: flex-end;
   justify-content: center;
   margin: 50px;
+  margin-left: 90px;
+}
+.heheNext{
+  color: blue;
 }
 .box {
   color: white;
@@ -91,9 +101,9 @@
   background: #16a085;
 }
 
-.box10x, .box1x, .box2x, .box3x, .box4x, .box5x, .box6x, .box7x, .box8x, .box9x {
+/* .box10x, .box1x, .box2x, .box3x, .box4x, .box5x, .box6x, .box7x, .box8x, .box9x {
   background: #112A53;
-}
+} */
 
 /* ///////////////
 /////////////// CSS 2 : grid : end
@@ -106,6 +116,8 @@
 * {
   box-sizing: border-box;
 }
+
+
 .container_0 {
   font-family: sans-serif;
   font-size: 1.1em;
