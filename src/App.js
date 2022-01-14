@@ -20,6 +20,8 @@ function App() {
   // const [ship, setShip] = useState(null);
   const [ship, setShip] = useState(initialiseSquareShip());
 
+  let message = "";
+
   // // #TODO: delete -- Example for the matrix, to know the kind of content:
   // const gridCases = [
   //   [0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3], 
@@ -50,9 +52,8 @@ function App() {
 
 
       backupGrid = gridCases.slice(0, gridCases.length);
-      let updatedGrid = gridCases.slice(0, gridCases.length);
+      let updatedGrid = a_1_buildGrid(numGridColumns, numGridLines);
       // compute the compGrid (using the ship)
-      shipColor = Math.ceil(Math.random()*10);
       colorShipInMatrix(updatedGrid, ship);
       // update the (grid) state with the compGrid
       setGridCases(updatedGrid);
@@ -62,14 +63,30 @@ function App() {
       // setStep(() => EAST);
       applyMove1RightOrLeftOrDownOnShip(ship, "right")
       // alert("right");
+
+      backupGrid = gridCases.slice(0, gridCases.length);
+      let updatedGrid = a_1_buildGrid(numGridColumns, numGridLines);
+      // compute the compGrid (using the ship)
+      colorShipInMatrix(updatedGrid, ship);
+      // update the (grid) state with the compGrid
+      setGridCases(updatedGrid);
+
       
     }
     // else if (e.keyCode === _up_key) {
-    //     setStep(() => NORTH);
     // }
-    // else if (e.keyCode === _down_key) {
-    //     setStep(() => SOUTH);
-    // }
+    else if (e.keyCode === _down_key) {
+      // alert("down");
+      applyMove1RightOrLeftOrDownOnShip(ship, "down");
+
+      backupGrid = gridCases.slice(0, gridCases.length);
+      let updatedGrid = a_1_buildGrid(numGridColumns, numGridLines);
+      // compute the compGrid (using the ship)
+      colorShipInMatrix(updatedGrid, ship);
+      // update the (grid) state with the compGrid
+      setGridCases(updatedGrid);
+
+    }
   }
   /////////////////////////////
   // 0/ INITIALIZE A GAME (jeudi 13 jan 2022):
@@ -86,7 +103,9 @@ function App() {
       // 1/ draw ship :
     // save the normal grid in an array copy:
     backupGrid = gridCases.slice(0, gridCases.length);
+    //let updatedGrid = gridCases.slice(0, gridCases.length);
     let updatedGrid = gridCases.slice(0, gridCases.length);
+    a_1_buildGrid(numGridColumns, numGridLines)
     // compute the compGrid (using the ship)
     shipColor = Math.ceil(Math.random()*10);
     colorShipInMatrix(updatedGrid, ship);
@@ -272,10 +291,10 @@ function App() {
 
       switch (strLeftOrRight) {
         case "right":
-          right = 1;
+          right = 0.5;
           break;
         case "left":
-          right = -1;
+          right = -0.5;
           break;
         case "down":
           up = -1;
@@ -312,6 +331,7 @@ function App() {
           coordD[1] = coordD[1] + up;
         } else {
           alert("Ship reached the floor");
+          message = "Ship reached the floor";
         }
 
       })
@@ -459,24 +479,35 @@ function App() {
             <p>Next piece: </p>
             <div className='heheNext'>X</div>
             <div className='heheNext'>XXXX</div>
-            <div>_</div>
+            <br/>
+            <br/>
             
             {/* 
             <div>Debug: 1/ ship 2/matrix</div>
             <div>{ship}</div>
             <div>{gridCases}</div>
              */}
+
+            
+            <div>Messages: </div>
+            <div>{message}</div>
+            <br/>
+            <br/>
+
+            
+
+
           </div>
 
           <div class="green_row_22">
-            <div>_</div>
+            <br/>
             <div>Current score:</div>
             <div className='heheNext'>265</div>
             <br />
             <div>High score:</div>
             <div className='heheNext'>2000</div>
             <div>(by RedPlayer)</div>
-            <div>_</div>
+            <br/>
           </div>
 
         </div>
